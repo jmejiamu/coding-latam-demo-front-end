@@ -10,7 +10,10 @@ const HomeStack = () => {
             <Stack.Screen
                 name="Home screen"
                 component={Home}
-                options={{ title: "Coding Latam" }}
+                options={{
+                    title: "Coding Latam",
+                    headerStyle: { backgroundColor: '#E8C125' }
+                }}
             />
         </Stack.Navigator>
     )

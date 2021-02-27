@@ -10,7 +10,10 @@ const InfoStack = () => {
             <Stack.Screen
                 name="Info Screen"
                 component={UserInfo}
-                options={{ title: "User Info" }}
+                options={{
+                    title: "User Info",
+                    headerStyle: { backgroundColor: '#E8C125' }
+                }}
             />
         </Stack.Navigator>
     )

@@ -10,7 +10,10 @@ const UpdateStack = () => {
             <Stack.Screen
                 name="Update Screen"
                 component={UpdateData}
-                options={{ title: "Update Information" }}
+                options={{
+                    title: "Update Information",
+                    headerStyle: { backgroundColor: '#E8C125' }
+                }}
             />
         </Stack.Navigator>
     )
