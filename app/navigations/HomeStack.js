@@ -10,7 +10,7 @@ const HomeStack = () => {
             <Stack.Screen
                 name="Home screen"
                 component={Home}
-                options={{ title: "Home Screen" }}
+                options={{ title: "Coding Latam" }}
             />
         </Stack.Navigator>
     )

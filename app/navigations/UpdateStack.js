@@ -10,7 +10,7 @@ const UpdateStack = () => {
             <Stack.Screen
                 name="Update Screen"
                 component={UpdateData}
-                options={{ title: "Update Screen" }}
+                options={{ title: "Update Information" }}
             />
         </Stack.Navigator>
     )

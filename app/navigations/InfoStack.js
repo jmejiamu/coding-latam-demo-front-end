@@ -10,7 +10,7 @@ const InfoStack = () => {
             <Stack.Screen
                 name="Info Screen"
                 component={UserInfo}
-                options={{ title: "Info Screen" }}
+                options={{ title: "User Info" }}
             />
         </Stack.Navigator>
     )
