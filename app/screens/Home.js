@@ -8,7 +8,7 @@ import {
     TouchableOpacity
 } from 'react-native'
 
-import { MaterialCommunityIcons, AntDesign, FontAwesome5 } from '@expo/vector-icons'
+import { MaterialCommunityIcons, AntDesign, FontAwesome5, MaterialIcons } from '@expo/vector-icons'
 import InputComponent from './InputComponent'
 
 
@@ -23,7 +23,7 @@ const Home = (props) => {
                         <FontAwesome5 name="user-circle" size={40} color="#1D1B28" />
                     </View>
                     <View style={styles.iconStyles}>
-                        <MaterialCommunityIcons name="email-outline" size={24} color="#1D1B28" />
+                        <MaterialIcons name="perm-device-information" size={24} color="#1D1B28" />
 
                         <InputComponent
                             // style={styles.inputStyle}
@@ -35,7 +35,8 @@ const Home = (props) => {
                         />
                     </View>
                     <View style={styles.iconStyles} >
-                        <AntDesign name="lock1" size={24} color="#1D1B28" />
+
+                        <MaterialIcons name="perm-device-information" size={24} color="#1D1B28" />
 
                         <InputComponent
                             // style={styles.inputStyle}
@@ -48,7 +49,8 @@ const Home = (props) => {
 
                     </View>
                     <View style={styles.iconStyles} >
-                        <AntDesign name="lock1" size={24} color="#1D1B28" />
+
+                        <MaterialIcons name="perm-device-information" size={24} color="#1D1B28" />
 
                         <InputComponent
                             // style={styles.inputStyle}
