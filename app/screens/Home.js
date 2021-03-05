@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
     View,
     Text,
@@ -8,11 +8,38 @@ import {
     TouchableOpacity
 } from 'react-native'
 
-import { MaterialCommunityIcons, AntDesign, FontAwesome5, MaterialIcons } from '@expo/vector-icons'
+import { FontAwesome5, MaterialIcons } from '@expo/vector-icons'
 import InputComponent from './InputComponent'
 
 
 const Home = (props) => {
+
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [color, setColor] = useState('');
+
+    const handleSubmit = async () => {
+        try {
+            const body = {
+                name: name,
+                email: email,
+                fav_color: color
+            }
+            const response = await fetch('http://192.168.1.69:3006/saveinfo', {
+                method: 'POST',
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(body)
+            })
+        } catch (error) {
+            console.error(error.message);
+        }
+
+        setName('')
+        setEmail('')
+        setColor('')
+    }
+
+
     return (
         <TouchableWithoutFeedback onPress={() => {
             Keyboard.dismiss();
@@ -26,25 +53,24 @@ const Home = (props) => {
                         <MaterialIcons name="perm-device-information" size={24} color="#1D1B28" />
 
                         <InputComponent
-                            // style={styles.inputStyle}
+
                             placeholder="Name"
+                            placeholderTextColor='gray'
+                            value={name}
+                            onChangeText={e => setName(e)}
+                        />
+                    </View>
+                    <View style={styles.iconStyles} >
+
+                        <MaterialIcons name="perm-device-information" size={24} color="#1D1B28" />
+
+                        <InputComponent
+
+                            placeholder="Email"
                             keyboardType="email-address"
                             placeholderTextColor='gray'
-                        // value={email}
-                        // onChangeText={e => setEmail(e)}
-                        />
-                    </View>
-                    <View style={styles.iconStyles} >
-
-                        <MaterialIcons name="perm-device-information" size={24} color="#1D1B28" />
-
-                        <InputComponent
-                            // style={styles.inputStyle}
-                            placeholder="Email"
-                            secureTextEntry={true}
-                            placeholderTextColor='gray'
-                        // value={password}
-                        // onChangeText={e => setPassword(e)}
+                            value={email}
+                            onChangeText={e => setEmail(e)}
                         />
 
                     </View>
@@ -53,12 +79,10 @@ const Home = (props) => {
                         <MaterialIcons name="perm-device-information" size={24} color="#1D1B28" />
 
                         <InputComponent
-                            // style={styles.inputStyle}
-                            placeholder="Phone"
-                            secureTextEntry={true}
+                            placeholder="Favorite color"
                             placeholderTextColor='gray'
-                        // value={password}
-                        // onChangeText={e => setPassword(e)}
+                            value={color}
+                            onChangeText={e => setColor(e)}
                         />
 
                     </View>
@@ -67,7 +91,7 @@ const Home = (props) => {
                 <View style={{ marginLeft: 20, marginRight: 20 }}>
 
                     <TouchableOpacity style={styles.submitButtonStyle}
-                    // onPress={handleSubmit}
+                        onPress={handleSubmit}
                     >
                         <Text style={styles.textSingStyle} >Submit Information</Text>
                     </TouchableOpacity>
