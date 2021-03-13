@@ -5,7 +5,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeStack from './HomeStack';
 import InfoStack from './InfoStack';
 import UpdateStack from './UpdateStack';
-import { MaterialCommunityIcons, AntDesign } from '@expo/vector-icons'
+import { MaterialCommunityIcons, AntDesign, Entypo } from '@expo/vector-icons'
 
 const Tab = createBottomTabNavigator();
 
@@ -27,7 +27,12 @@ const Navigation = () => {
                     )
 
                 }} />
-                <Tab.Screen name="page3" component={UpdateStack} options={{ title: "Upadate" }} />
+                <Tab.Screen name="page3" component={UpdateStack} options={{
+                    title: "Upadate",
+                    tabBarIcon: ({ color, size }) => (
+                        <Entypo name="edit" color={color} size={size} />
+                    )
+                }} />
             </Tab.Navigator>
         </NavigationContainer>
     )
