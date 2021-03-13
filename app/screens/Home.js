@@ -39,6 +39,13 @@ const Home = (props) => {
         setColor('')
     }
 
+    const clearData = () => {
+        setName('')
+        setEmail('')
+        setColor('')
+
+    }
+
 
     return (
         <TouchableWithoutFeedback onPress={() => {
@@ -96,7 +103,7 @@ const Home = (props) => {
                         <Text style={styles.textSingStyle} >Submit Information</Text>
                     </TouchableOpacity>
 
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={clearData}>
                         <Text style={styles.textSingStyle} >Clear fields</Text>
                     </TouchableOpacity>
                 </View>
