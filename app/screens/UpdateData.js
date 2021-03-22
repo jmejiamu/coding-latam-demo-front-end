@@ -18,6 +18,18 @@ const UpdateData = () => {
 
     }
 
+    const deleteData = async (id) => {
+        try {
+            const deleteInfo = await fetch(`http://192.168.1.69:3006/deleteinfo/${id}`, {
+                method: 'DELETE'
+            })
+            getUserData(userData.filter(user => user.id !== id));
+            const dataResponse = await deleteInfo.json();
+        } catch (error) {
+            console.error(error.message);
+        }
+    }
+
     useEffect(() => {
         getUserData();
     }, [])
@@ -48,7 +60,7 @@ const UpdateData = () => {
                                 <View style={{ marginLeft: 20, marginRight: 20 }}>
 
                                     <TouchableOpacity style={styles.buttonStyle}
-                                        onPress={() => deleteData(item.id)}
+                                    // onPress={() => deleteData(item.id)}
                                     >
                                         <Text style={styles.textUserStyle} >Update</Text>
                                     </TouchableOpacity>
